@@ -15,9 +15,19 @@ defmodule KYCWeb.Router do
   end
 
   scope "/", KYCWeb do
-    pipe_through :browser
+    pipe_through [:browser, KYCWeb.Plugs.Guest]
 
-    live "/", PageLive, :index
+    live "/login", IndexLive, :index
+    live "/sign_up", IndexLive, :sign_up
+  end
+
+  scope "/", KYCWeb do
+    pipe_through [:browser, KYCWeb.Plugs.Authorized]
+
+    live "/", HomeLive, :index
+    live "/add", HomeLive, :add
+
+    live "/logout", IndexLive, :logout
   end
 
   # Other scopes may use custom stacks.
