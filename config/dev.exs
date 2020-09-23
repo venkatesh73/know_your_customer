@@ -4,7 +4,7 @@ use Mix.Config
 config :know_your_customer, KYC.Repo,
   username: System.get_env("DB_USERNAME") || "postgres",
   password: System.get_env("DB_PASSWORD") || "postgres",
-  database: System.get_env("DB_NAME")     || "know_your_customer_dev",
+  database: System.get_env("DB_NAME") || "know_your_customer_dev",
   hostname: System.get_env("DB_HOSTNAME") || "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

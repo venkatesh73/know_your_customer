@@ -6,10 +6,10 @@ use Mix.Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :know_your_customer, KYC.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "know_your_customer_test#{System.get_env("MIX_TEST_PARTITION")}",
-  hostname: "localhost",
+  username: System.get_env("TEST_DB_USERNAME") || "postgres",
+  password: System.get_env("TEST_DB_PASSWORD") || "postgres",
+  database: System.get_env("TEST_DB_NAME") || "know_your_customer_test",
+  hostname: System.get_env("TEST_DB_HOSTNAME") || "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
