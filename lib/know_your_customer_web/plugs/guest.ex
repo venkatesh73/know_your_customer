@@ -12,6 +12,7 @@ defmodule KYCWeb.Plugs.Guest do
       |> redirect(to: KYCWeb.Router.Helpers.home_path(conn, :index))
       |> halt()
     end
+
     conn
   end
 end

@@ -1,0 +1,17 @@
+<section class="container">
+	<h5>
+		User Topics of Interes
+		<a class="pull-right" href="/add">Add Topics</a>
+	</h5>
+	<%= if @topics do %>
+		<%= for topic <- @topics do %>
+			<div class="topic-card">
+				<h6><%= topic.name  %></h6>
+				<p><%= topic.descp %></p>
+				<%= link "delete", to: Routes.home_path(@conn, :delete, topic.id), method: :delete %>
+			</div>
+		<% end %>
+	<% else %>
+		<pre>No Topics has been added by user.</pre>
+	<% end %>
+</section>

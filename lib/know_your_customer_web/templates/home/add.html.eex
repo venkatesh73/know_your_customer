@@ -1,0 +1,16 @@
+<section class="container">
+	<h5>
+		Add User Topics of Interest
+		<a class="pull-right" href="/">Cancel</a>
+	</h5>
+	<%= form_for :topics, Routes.home_path(@conn, :create), fn f -> %>
+		<div class="form-group">
+			<%= label f,  :Topics_of_interest %>
+			<%= multiple_select f, :topics, Enum.map(@topics, &{&1.name, &1.id}), class: "form-control", style: "width:100%;height:50%;" %>
+			<p>Note: To select multiples values select options.</p>
+		</div>
+		<div class="form-group">
+            <%= submit "add" %>
+        </div>
+	<% end %>
+</section>

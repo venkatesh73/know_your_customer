@@ -16,7 +16,7 @@
           <ul>
             <%= if signed_in?(@conn) do %>
               <li>
-                <a href="/logout">logout</a>
+                <%= link "Logout", to: Routes.session_path(@conn, :delete), method: :delete %>
               </li>
             <% else %>
               <li>

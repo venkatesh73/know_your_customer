@@ -13,7 +13,7 @@ defmodule KYC.Schema.User do
     field :encrypted_password, :string, null: false
     field :age, :integer, null: false
 
-    many_to_many :topics, Topics, join_through: "user_topics"
+    many_to_many :topics, Topics, join_through: "user_topics", on_replace: :delete
 
     timestamps()
   end

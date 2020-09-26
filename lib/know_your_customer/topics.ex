@@ -9,7 +9,7 @@ defmodule KYC.Schema.Topics do
     field :name, :string
     field :descp, :string
 
-    many_to_many :user, User, join_through: "user_topics"
+    many_to_many :user, User, join_through: "user_topics", on_replace: :delete
 
     timestamps()
   end

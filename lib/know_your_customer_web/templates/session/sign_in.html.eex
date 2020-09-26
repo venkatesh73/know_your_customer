@@ -1,0 +1,16 @@
+<section class="container">
+	<h5>Login</h5>
+	<%= form_for :login, Routes.session_path(@conn, :submit), fn f -> %>
+		<div class="form-group">
+            <%= label f,  :email %>
+            <%= text_input f, :email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= label f,  :password %>
+            <%= password_input f, :password, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= submit "login" %>
+        </div>
+	<% end %>
+</section>
