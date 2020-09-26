@@ -42,7 +42,7 @@ defmodule KYC.Users do
     |> Repo.preload([:topics])
   end
 
-  def get_user!(_params) do
-    %{}
+  def get_user!(userid) do
+    Repo.get(User, userid)
   end
 end
